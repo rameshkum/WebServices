@@ -1,0 +1,56 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jaxws="http://cxf.apache.org/jaxws" 
+	xmlns:cxf="http://cxf.apache.org/core"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="
+		http://cxf.apache.org/core 
+		http://cxf.apache.org/schemas/core.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://cxf.apache.org/jaxws 
+		http://cxf.apache.org/schemas/jaxws.xsd
+		http://cxf.apache.org/jaxrs
+		http://cxf.apache.org/schemas/jaxrs.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-addr.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" /> 
+  
+   
+<!-- Service -->
+    <bean id="customerService" class="com.helpezee.service.DemoCustomerServiceImpl"
+    init-method="init"
+    destroy-method="destroy" />
+    
+     <bean id="employeeService" class="com.helpezee.service.DemoEmployeeServiceImpl"
+    init-method="init"
+    destroy-method="destroy" />
+    
+    <!-- Jaxrs Server -->
+    <jaxrs:server id="restserver" address="/customerService">
+    
+        <!-- adding service bean -->
+        <jaxrs:serviceBeans>
+            <ref bean="customerService" />
+         </jaxrs:serviceBeans>
+         
+       <jaxrs:features>
+            <cxf:logging/>
+        </jaxrs:features>
+        
+        <!-- Keeping extention type -->
+        <jaxrs:extensionMappings>
+            <entry key="json" value="application/json" />
+            <entry key="xml" value="application/xml" />
+        </jaxrs:extensionMappings>
+        
+    </jaxrs:server>
+    
+    <jaxws:endpoint    id="empService" implementor="#employeeService"
+       address="/employeeService" />
+    
+
+</beans>
