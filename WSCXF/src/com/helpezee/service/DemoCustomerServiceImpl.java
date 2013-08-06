@@ -1,14 +1,6 @@
 package com.helpezee.service;
 
-/**
-|
-| Copyright (c) Kaustuv Maji , 2013
-|
-| Please do not use source code in production.
-| Repos -  https://github.com/kaustuvmaji
-| Blog  -  http://kaustuvmaji.blogspot.in
-*/
- 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,24 +22,7 @@ import com.helpezee.dto.customer.Customer;
       --   Get customer by customerId {@link #getCustomerById(long)}.
       --   Update customer            {@link #updateCustomer(Customer)}.
       --   Delete customer            {@link #deleteCustomer(long)}.
-
-
- 
- This implementation class is to implement SOAP service interface.
-  			
-  			Operation  				   Methods
-  			
-      --   Add Employee               {@link #addCustomer(Customer)}.
-      --   Get Employee by employeeId {@link #getCustomerById(long)}.
-      --   Update Employee            {@link #updateCustomer(Customer)}.
-      --   Delete Employee            {@link #deleteCustomer(long)}.
-
-  Common Methods
-      --   init                       {@link #init()}.
-      --   destory                    {@link #destroy()}.
-
- */
- 
+*/
 public class DemoCustomerServiceImpl implements DemoCustomerService {
  
   @Context

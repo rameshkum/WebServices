@@ -1,15 +1,5 @@
 package com.helpezee.service;
 
-//http://kaustuvmaji.blogspot.in/2013/04/simple-restful-web-services-example.html
-
-/**
- *
- * Copyright (c) Kaustuv Maji , 2013
- * Repos - https://github.com/kaustuvmaji
- * Blog -  http://kaustuvmaji.blogspot.in
- *
- */
-
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.ws.rs.Consumes;
@@ -27,18 +17,13 @@ import javax.ws.rs.core.Response;
 import com.helpezee.dto.customer.Customer;
 
 /**
- * This is rest services interface . Methods i. Add customer
- * {@link #addCustomer(Customer)}. ii. Get customer by customerId
- * {@link #getCustomerById(long)}. iii. Update customer
- * {@link #updateCustomer(Customer)}. iv. Delete customer
- * {@link #deleteCustomer(long)}.
- * 
- * @since 1.0
- * @version 1.0
- * 
- * @author KMaji
- * 
- */
+ * This is rest services interface . 
+ * Methods 
+ * i. Add customer					 * {@link #addCustomer(Customer)}. 
+ * ii. Get customer by customerId	 * {@link #getCustomerById(long)}. 
+ * iii. Update customer				 * {@link #updateCustomer(Customer)}.
+ * iv. Delete customer				 * {@link #deleteCustomer(long)}.
+  */
 @Path("/")
 @WebService(targetNamespace = "http://ws.helpezee.com/services/cxf", endpointInterface = "http:helpezee.wordpress.com/rest")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
@@ -46,13 +31,6 @@ public interface DemoCustomerService {
 
 	// RESTFUL Interfaces
 
-	/**
-	 * This method is used to demonstrate http method GET.
-	 * 
-	 * @param custId
-	 *            will be accepted as Queryparam.
-	 * @return response0
-	 */
 	@GET
 	@Path("/getCustomerByIdPath/{custId}")
 	@Produces({ "application/xml", "application/json" })

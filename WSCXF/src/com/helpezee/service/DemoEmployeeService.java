@@ -1,14 +1,5 @@
 package com.helpezee.service;
 
-//http://kaustuvmaji.blogspot.in/2013/04/simple-restful-web-services-example.html
-
-/**
- *
- * Copyright (c) Kaustuv Maji , 2013
- * Repos - https://github.com/kaustuvmaji
- * Blog -  http://kaustuvmaji.blogspot.in
- *
- */
 
 import javax.jws.WebMethod;
 import javax.jws.WebResult;
@@ -18,17 +9,12 @@ import com.helpezee.dto.employee.Employee;;
 
 
 /**
- * This is rest services interface . Methods i. Add Employee
- * {@link #addEmployee(Customer)}. ii. Get Employee by EmployeeId
- * {@link #getEmployeeById(long)}. iii. Update Employee
- * {@link #updateEmployee(Customer)}. iv. Delete Employee
- * {@link #deleteEmployee(long)}.
- * 
- * @since 1.0
- * @version 1.0
- * 
- * @author KMaji
- * 
+ * This is SOAP services interface . 
+ * Methods 
+ * i. Add Employee                {@link #addEmployee(Employee)}. 
+ * ii. Get Employee by EmployeeId {@link #getEmployeeById(Employee)}. 
+ * iii. Update Employee           {@link #updateEmployee(Employee)}. 
+ * iv. Delete Employee            {@link #deleteEmployee(Employee)}.
  */
 
 @WebService(targetNamespace = "http://ws.helpezee.com/services/cxf", endpointInterface = "http:helpezee.wordpress.com/soap")
