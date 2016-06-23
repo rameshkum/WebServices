@@ -7,12 +7,14 @@ import javax.jws.soap.SOAPBinding.ParameterStyle;
 
 import org.apache.cxf.interceptor.InInterceptors;
 import org.apache.cxf.interceptor.OutFaultInterceptors;
+import org.apache.cxf.interceptor.OutInterceptors;
 
 import com.helpezee.dto.Employee;
 
 @WebService
-@InInterceptors(interceptors = {"com.helpezee.interceptors.LoggingInInterceptor" ,"com.helpezee.interceptors.BasicAuthAuthorizationInterceptor" })
-@OutFaultInterceptors (interceptors = {"com.helpezee.interceptors.CustomFaultInterceptor" }) 
+@InInterceptors(interceptors = {"org.apache.cxf.interceptor.LoggingInInterceptor" ,"com.helpezee.interceptors.BasicAuthAuthorizationInterceptor" })
+@OutInterceptors(interceptors = {"org.apache.cxf.interceptor.LoggingOutInterceptor"})
+@OutFaultInterceptors (interceptors = {"org.apache.cxf.interceptor.FaultOutInterceptor" }) 
 @SOAPBinding(parameterStyle = ParameterStyle.BARE)
 public interface EmployeeService {
 	@WebMethod
