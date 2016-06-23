@@ -11,8 +11,7 @@ import org.apache.cxf.interceptor.OutFaultInterceptors;
 import com.helpezee.dto.Employee;
 
 @WebService
-@InInterceptors(interceptors = {"com.helpezee.interceptors.LoggingInInterceptor" })
-/*@OutInterceptors (interceptors = {"com.example.Test2Interceptor" }) */
+@InInterceptors(interceptors = {"com.helpezee.interceptors.LoggingInInterceptor" ,"com.helpezee.interceptors.BasicAuthAuthorizationInterceptor" })
 @OutFaultInterceptors (interceptors = {"com.helpezee.interceptors.CustomFaultInterceptor" }) 
 @SOAPBinding(parameterStyle = ParameterStyle.BARE)
 public interface EmployeeService {
